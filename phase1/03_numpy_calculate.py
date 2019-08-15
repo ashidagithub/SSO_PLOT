@@ -5,7 +5,7 @@
 # created:  2019.8.10
 
 # Description:
-#   练习 广播 broadcast 功能
+#   练习 numpy 数组的运算
 # ------------------------(max to 80 columns)-----------------------------------
 
 import numpy as np
@@ -18,14 +18,14 @@ import numpy as np
 '''
 # ------------- 两个数组相乘  -------------------
 print('----- 两个数组相乘 cutting line -----')
-a = np.array([1,2,3,4])
+a = np.array([1, 2, 3, 4])
 print(a.shape)
-b = np.array([10,20,30,40,50])
+b = np.array([10, 20, 30, 40, 50])
 print(b.shape)
 
 if a.shape == b.shape:
     c = a * b
-    print (c)
+    print(c)
 else:
     print('数组形状不同，无法相乘')
 
@@ -49,11 +49,11 @@ else:
 若条件不满足，抛出 "ValueError: frames are not aligned" 异常。
 
 '''
-print('----- 两个数组相加 cutting line -----')
+print('----- 两个数组相加 广播(Broadcast) cutting line -----')
 # 当运算中的 2 个数组的形状不同时，numpy 将自动触发广播机制。如：
-a = np.array([[ 0, 0, 0],
-           [10,10,10],
-           [20,20,20],
-           [30,30,30]])
-b = np.array([1,2,3])
+a = np.array([[0, 0, 0],
+              [10, 10, 10],
+              [20, 20, 20],
+              [30, 30, 30]])
+b = np.array([1, 2, 3])
 print(a + b)

@@ -43,14 +43,14 @@ print(a)
 # ------------- 按指定的数值范围生成一维数组  nparray -------------------
 print('----- 按指定的数值范围生成多维数组 cutting line -----')
 # 生成 2x3 的数组:
-row1 = [1,2,3]
-row2 = [1,2,3]
-x = np.asarray([row1,row2])
+row1 = [1, 2, 3]
+row2 = [1, 2, 3]
+x = np.asarray([row1, row2])
 print(x)
 
 # 将一个序列转换成 nXm 方阵
 total = 100
 row = 10
 col = 10
-x=np.arange(total).reshape(row,col)
+x = np.arange(total).reshape(row, col)
 print(x)
