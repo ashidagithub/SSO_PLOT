@@ -78,7 +78,7 @@ point_num = 100
 # 设置 x 值
 x = np.linspace(start, stop, point_num, endpoint=True)
 #y = 2 * x / (x * x + 1) - 2
-#y = x * x * np.exp(x)
+y = x * x * np.exp(x)
 '''
 np 的数学公式参见
 https://www.cnblogs.com/keepgoingon/p/7137448.html

@@ -8,6 +8,7 @@
 #   练习 numpy 的迭代功能
 # ------------------------(max to 80 columns)-----------------------------------
 
+import pdb
 import numpy as np
 
 '''
