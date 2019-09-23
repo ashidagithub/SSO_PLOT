@@ -20,7 +20,7 @@ import numpy as np
 print('----- 两个数组相乘 cutting line -----')
 a = np.array([1, 2, 3, 4])
 print(a.shape)
-b = np.array([10, 20, 30, 40, 50])
+b = np.array([10, 20, 30, 40])
 print(b.shape)
 
 if a.shape == b.shape:
