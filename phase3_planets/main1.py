@@ -38,10 +38,8 @@ AU = 149597870700
 # 基本信息
 pName = np.asarray(row0)
 pD = np.asarray(row1)
-draw_bar1('行星直径对比', 'Planet Name', pName, 'Planet Diameter', pD, '千米(km)')
 
 pM = np.asarray(row2)
-draw_bar1('行星质量对比', 'Planet Name', pName, 'Planet Mass', pM, '千克(kg)')
 
 # 体积密度
 pR = pD * 0.5
@@ -58,3 +56,13 @@ pVR = np.asarray(row4)
 
 pCR1 = pPR * 3600 * 24 * pVR
 pCR2 = pCR1 * 1000 / AU
+
+# Try1 开始画图
+draw_bar1('行星直径对比', 'Planet Name', pName, 'Planet Diameter', pD, '千米(km)')
+draw_bar1('行星质量对比', 'Planet Name', pName, 'Planet Mass', pM, '千克(kg)')
+
+# Try2 --------------------------------------------------------
+fig2 = plt.figure()  # 弹出对话框时的标题，如果显示的形式为弹出对话框的话
+pst1 = plt.subplot(221)
+pst2 = plt.subplot(222)
+pst3 = plt.subplot(212)
