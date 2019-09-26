@@ -1,0 +1,136 @@
+# -*- coding: UTF-8 -*-
+
+# ------------------------(max to 80 columns)-----------------------------------
+# author by : （学员ID)
+# created:  2019.8.10
+
+# Description:
+#   编制行星数据分析 （绘图函数库）
+# ------------------------(max to 80 columns)-----------------------------------
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+def draw_bar_vertical(title, label_name, x_label, x_data, y_label, y_data):
+    '垂直条形图'
+
+    # 绘图
+    '''
+    x: 为一个标量序列，确定x轴刻度数目
+    height: 和x对应，确定y轴的刻度
+    width: 决定单个直方图的宽度,效果见图2
+    '''
+    plt.bar(x=x_data, height=y_data, label=label_name, color='steelblue')
+
+    # 替换字体，以便 matplotlib 能够显示中文
+    plt.rcParams['font.sans-serif'] = ['SimHei']
+
+    # MAC
+    #plt.rcParams['font.sans-serif'] = ['Arial Unicode MS']
+
+    # 设置标题
+    plt.title(title)
+    # 为两条坐标轴设置名称
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    # 显示图例
+    plt.legend()
+    plt.show()
+
+    return
+
+
+def draw_bar_horizontal(title, label_name, x_label, x_data, y_label, y_data):
+    '水平条形图'
+
+    # 绘图
+    # barh()表示绘制水平方向的条形图，基本使用方法为：
+    # barh(y, width, height=0.8,align='center')
+    plt.barh(y=x_data, width=y_data, height=0.8,
+             label=label_name, color='steelblue')
+
+    # 替换字体，以便 matplotlib 能够显示中文
+    plt.rcParams['font.sans-serif'] = ['SimHei']
+
+    # MAC
+    #plt.rcParams['font.sans-serif'] = ['Arial Unicode MS']
+
+    # 设置标题
+    plt.title(title)
+    # 为两条坐标轴设置名称
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    # 显示图例
+    plt.legend()
+    plt.show()
+
+    return
+
+
+def draw_bar_2serials(
+        title, label_name,
+        x_label, y_label,
+        x1_data, y1_data,
+        x2_data, y2_data,
+):
+
+    index = np.arange(8)
+    bar_width = 0.3
+
+    # 画第一个条形图
+    plt.bar(x=index, height=y1_data,
+            label=label_name[0], width=bar_width, color='b')
+    # 叠加
+    plt.bar(x=index + bar_width, height=y2_data,
+            label=label_name[1], width=bar_width, color='r')
+
+    # 替换字体，以便 matplotlib 能够显示中文
+    plt.rcParams['font.sans-serif'] = ['SimHei']
+
+    # 设置标题
+    plt.title(title)
+
+    # 设置网格
+    plt.grid(True)
+    plt.grid(color='r', linestyle='--')  # 修改网格颜色，类型为虚线
+
+    # 为x,y坐标轴设置名称
+    # plt.xlabel(x_label)
+    plt.xticks(range(0, 7), x1_data)
+    # plt.ylabel(y_label)
+
+    # 显示图例
+    plt.legend()
+    plt.show()
+
+    return
+
+def draw_2D_planet(planet_names, planet_radius):
+    '''
+    圆的标准方程(x-a)²+(y-b)²=r²中
+    有三个参数a、b、r，即圆心坐标为(a，b)，只要求出a、b、r，这时圆的方程就被确定，
+    因此确定圆方程，须三个独立条件，
+    其中圆心坐标是圆的定位条件，半径是圆的定形条件。
+    '''
+    start = 0
+    stop = 2 * np.pi
+    point_num = 100
+    # 设置 x 值
+    deta = np.linspace(start, stop, point_num, endpoint=True)
+
+    radius = planet_radius.tolist()
+    cnt = 0
+    for r in radius:
+        x = r * np.cos(deta)
+        y = r * np.sin(deta)
+        plt.plot(x, y, label=('Planet-%s' % planet_names[cnt]))
+        cnt += 1
+
+    plt.axis('scaled')
+
+    # 制作图例
+    plt.legend()
+    # 显示图像
+    plt.show()
+
+    return

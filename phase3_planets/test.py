@@ -56,28 +56,5 @@ pVR = np.asarray(row4)
 pCR1 = pPR * 3600 * 24 * pVR
 pCR2 = pCR1 * 1000 / AU
 
-# Try1 简单的直方图（条形图）
-#draw_bar_vertical('行星直径对比', '千米(km)', '行星名', pName, '直径', pD)
-#draw_bar_horizontal('行星质量对比', '千克(kg)', '行星名', pName, '质量', pM)
-
-# Tyr2 表面重力、逃逸速度对比图
-label_name = ['g 单位（m/s2）','Ve 单位（km/s）']
-'''
-draw_bar_2serials(
-    '行星表面重力与逃逸速度的同时比较', label_name,
-    '行星名', '表面重力、逃逸速度',
-    pName, pg,
-    pName, pVe
-)
-'''
-''' 按比例缩放
-draw_bar_2serials(
-    '行星表面重力与逃逸速度的同时比较', label_name,
-    '行星名', '表面重力、逃逸速度',
-    pName, pg/9.78,
-    pName, pVe/pVe.min()
-)
-'''
-
-# Try3 绘制行星大小比较
-draw_2D_planet(pName, pR)
+radius = pR.tolist()
+print(radius)
