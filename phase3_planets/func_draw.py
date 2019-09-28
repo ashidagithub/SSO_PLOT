@@ -68,13 +68,13 @@ def draw_bar_horizontal(title, label_name, x_label, x_data, y_label, y_data):
 
 
 def draw_bar_2serials(
-        title, label_name,
+        title, label_name, numbers,
         x_label, y_label,
         x1_data, y1_data,
         x2_data, y2_data,
 ):
 
-    index = np.arange(8)
+    index = np.arange(numbers)
     bar_width = 0.3
 
     # 画第一个条形图
@@ -85,7 +85,8 @@ def draw_bar_2serials(
             label=label_name[1], width=bar_width, color='r')
 
     # 替换字体，以便 matplotlib 能够显示中文
-    plt.rcParams['font.sans-serif'] = ['SimHei']
+    # 可使用 get_fonts.py 查看所有的字体 （ 中文字体的拼音）
+    plt.rcParams['font.sans-serif'] = ['FangSong']
 
     # 设置标题
     plt.title(title)
@@ -105,7 +106,7 @@ def draw_bar_2serials(
 
     return
 
-def draw_2D_planet(planet_names, planet_radius):
+def draw_2D_planet(title, planet_names, planet_radius):
     '''
     圆的标准方程(x-a)²+(y-b)²=r²中
     有三个参数a、b、r，即圆心坐标为(a，b)，只要求出a、b、r，这时圆的方程就被确定，
@@ -123,14 +124,15 @@ def draw_2D_planet(planet_names, planet_radius):
     for r in radius:
         x = r * np.cos(deta)
         y = r * np.sin(deta)
-        plt.plot(x, y, label=('Planet-%s' % planet_names[cnt]))
+        plt.plot(x, y, label=('%s' % planet_names[cnt]))
         cnt += 1
 
-    plt.axis('scaled')
-
-    # 制作图例
-    plt.legend()
-    # 显示图像
-    plt.show()
+    plt.axis('scaled') # 调整 x，y轴比例
+    plt.rcParams['font.sans-serif'] = ['SimHei']    # 设置字体
+    plt.title(title)    # 设置标题
+    plt.grid(True)      # 设置网格
+    plt.grid(color='r', linestyle='--')  # 修改网格颜色，类型为虚线
+    plt.legend()        # 制作图例
+    plt.show()          # 显示图像
 
     return
