@@ -22,7 +22,12 @@ import numpy as np
 
 '''
 
-def draw_bar2(title, x_label, x_data, y_label, y_data, label_name):
+
+def draw_bar2(
+    title, label_name,
+    x_label, x_data,
+    y_label, y_data
+):
 
     # 绘图
     plt.bar(x=x_data, height=y_data, label=label_name, color='steelblue')
@@ -40,6 +45,6 @@ def draw_bar2(title, x_label, x_data, y_label, y_data, label_name):
     plt.ylabel(y_label)
     # 显示图例
     plt.legend()
-    #plt.show()
+    # plt.show()
 
     return plt
