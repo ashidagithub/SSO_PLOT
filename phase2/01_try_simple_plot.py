@@ -70,13 +70,14 @@ plt.show()
 
 # Try 4 ----------------------------------------------------------
 # try4 高中其他函数作图
-start = -10
-stop = 10
-point_num = 100
+start = -6
+stop = 6
+point_num = 100000
 # 设置 x 值
 x = np.linspace(start, stop, point_num, endpoint=True)
 #y = 2 * x / (x * x + 1) - 2
-y = x * x * np.exp(x)
+#y = x * x * np.exp(x)
+y = (x * x - 3 * x + 2) * (x * x - 5 * x + 6)
 '''
 np 的数学公式参见
 https://www.cnblogs.com/keepgoingon/p/7137448.html
