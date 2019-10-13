@@ -9,10 +9,22 @@
 # ------------------------(max to 80 columns)-----------------------------------
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.font_manager import *
 
 
 def draw_bar_vertical(title, label_name, x_label, x_data, y_label, y_data):
     '垂直条形图'
+
+    '''
+    几种调整中文字体的方法
+    https://www.jb51.net/article/134546.htm
+
+
+    https://blog.csdn.net/qq_29750461/article/details/100560859
+        用print(matplotlib.matplotlib_fname())获取字体配置文件
+        修改字体配置文件，添加 SimHei 或其他中文字符集
+        重启电脑
+    '''
 
     # 绘图
     '''
@@ -23,16 +35,22 @@ def draw_bar_vertical(title, label_name, x_label, x_data, y_label, y_data):
     plt.bar(x=x_data, height=y_data, label=label_name, color='steelblue')
 
     # 替换字体，以便 matplotlib 能够显示中文
-    plt.rcParams['font.sans-serif'] = ['SimHei']
+    #plt.rcParams['font.sans-serif'] = ['FangSong']
+    # plt.rcParams['font.sans-serif']=['SimHei']
+    # plt.rcParams['font.family']='sans-serif'
+    #plt.rcParams['axes.unicode_minus'] = False
+    # 定义自定义字体，文件名从查看系统中文字体中来
+    myfont = FontProperties(fname='C:\\Windows\\Fonts\\simfang.ttf')
 
     # MAC
     #plt.rcParams['font.sans-serif'] = ['Arial Unicode MS']
 
     # 设置标题
-    plt.title(title)
+    #plt.title(title, fontproperties="System")
+    plt.title(title, fontproperties=myfont)
     # 为两条坐标轴设置名称
-    plt.xlabel(x_label)
-    plt.ylabel(y_label)
+    plt.xlabel(x_label, fontproperties=myfont)
+    plt.ylabel(y_label, fontproperties=myfont)
     # 显示图例
     plt.legend()
     plt.show()
@@ -106,6 +124,7 @@ def draw_bar_2serials(
 
     return
 
+
 def draw_2D_planet(title, planet_names, planet_radius):
     '''
     圆的标准方程(x-a)²+(y-b)²=r²中
@@ -127,7 +146,7 @@ def draw_2D_planet(title, planet_names, planet_radius):
         plt.plot(x, y, label=('%s' % planet_names[cnt]))
         cnt += 1
 
-    plt.axis('scaled') # 调整 x，y轴比例
+    plt.axis('scaled')  # 调整 x，y轴比例
     plt.rcParams['font.sans-serif'] = ['SimHei']    # 设置字体
     plt.title(title)    # 设置标题
     plt.grid(True)      # 设置网格
