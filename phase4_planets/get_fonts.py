@@ -1,5 +1,8 @@
 # The property page to define generic IDE options for Pythonwin
 # from pywin.mfc import dialog
+
+#pip3 install pypiwin32
+
 import win32ui
 import win32con
 
