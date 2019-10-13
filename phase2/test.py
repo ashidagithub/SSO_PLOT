@@ -16,27 +16,23 @@ import numpy as np
 
 # 设置 x 定义域
 start = 0.01
-stop = 1
+stop = 100
 # 设置 x 样本数
 point_num = 987
 # 设置 x 值
 x = np.linspace(start, stop, point_num, endpoint=False)
 # 获得 y 值
-z = x**2 / (x + 2) + (1 - x)**2 / (2 - x)
-# 用 (x, z) 点作图
-title = 'min(z)=%0.2f' % z.min()
-plt.title(title)
-plt.xlabel('X Label')
-plt.ylabel('Z Label')
-plt.plot(x, z)
+y = x * (x - 8) / (x - 9)
+# 用 (x, y) 点作图
+plt.plot(x, y)
 plt.show()
 
 # 定义一次函数并作图
-z = (2 * x**2 - 3 * x + 2) / (4 - x**2)
-title = 'min(z)=%0.2f' % z.min()
-plt.title(title)
-plt.xlabel('X Label')
-plt.ylabel('Z Label')
-plt.plot(x, z)
+#y = x*(x-8)/(x-9)
+#y = (2*x*x-3*x+2)/(4-x*x)
+#z = x*x/(x+2)+y*y/(y+1)
+plt.plot(x, y)
+
+# 在ipython的交互环境中需要这句话才能显示出来
 plt.show()
-print(z.min())
+print(y.min())
