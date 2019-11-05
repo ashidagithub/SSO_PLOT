@@ -31,6 +31,7 @@ row2 = (5.9650E+24, 3.3022E+23, 4.8690E+24, 6.4219E+23,
         1.9000E+27, 5.6846E+26, 8.6810E+25, 1.0247E+26)
 
 pName = np.asarray(row0)
+print(row0)
 print(pName)
 print(pName.dtype)
 

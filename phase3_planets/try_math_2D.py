@@ -19,10 +19,13 @@ start = 0.01
 stop = 1
 # 设置 x 样本数
 point_num = 987
+
 # 设置 x 值
 x = np.linspace(start, stop, point_num, endpoint=False)
 # 获得 y 值
 z = x**2 / (x + 2) + (1 - x)**2 / (2 - x)
+
+
 # 用 (x, z) 点作图
 title = 'min(z)=%0.2f' % z.min()
 plt.title(title)
